@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body{
+		font-size: 60px;
+		text-align: center;
+		background: black;
+		color: white;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oH3 = document.getElementsByTagName('h3')[0];
+			var targetDate = new Date();
+			targetDate.setFullYear(2017,4,1);
+			targetDate.setHours(0,0,0);
+			var targetTime = targetDate.getTime();
+			setInterval(time,1000);
+			function time() {
+				var nowDate = new Date();
+				var nowTime = nowDate.getTime();
+				var distanceTime = parseInt((targetTime-nowTime)/1000);
+				var dayTime = parseInt(distanceTime/86400);
+				var a = distanceTime%86400;
+				var hoursTime = parseInt(a/3600);
+				var b = a%3600;
+				var minutesTime = parseInt(b/60);
+				var secondsTime = b%60;
+				oH3.innerHTML = dayTime+'天'+hoursTime+'时'+minutesTime+'分'+secondsTime+'秒';
+			}
+		}
+
+	</script>
+</head>
+<body>
+	距离2017年5月1日0时0分0秒还有
+	<h3></h3>
+</body>
+</html>
